@@ -1,0 +1,36 @@
+{
+    "impresora":[{
+        "marca":"Creality",
+        "material":"Aluminio",
+        "color":"negro",
+        "dimensiones": "15x10x15",
+        "precio":115,
+        "Comentarios":"Manejable y precio asequible"
+        },
+    {
+        "marca":"R QIDI",
+        "material":"Aluminio , Acero",
+        "color":"Gris",
+        "dimensiones": "21,77x21,77x23,66",
+        "precio":150,        
+        "Comentarios":"Precio estable y muy cómoda para trabajar"
+    },
+    {
+        "marca":"AOSEED",
+        "material":"Material para niños",
+        "color":"Blanco",
+        "dimensiones": "25x15x25",
+        "precio":350,        
+        "Comentarios":"Muy cara para mis necesidades"
+    },
+    {
+        "marca":"ANYCUBIC",
+        "material":"Acero",
+        "color":"negro",
+        "dimensiones": "17x17x19",
+        "precio":250,        
+        "Comentarios":"De las mejores del mercado"
+    }
+
+    ]
+}

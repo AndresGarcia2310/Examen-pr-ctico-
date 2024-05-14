@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impresoras</title>
+  <style>
+    .div{
+        border: 2px solid blue; padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Impresoras 3D</h1>
+  <button onclick="" id="impresora" name="impresora">Listar Marcas de las Impresoras</button>
+  <button onclick="dataImpresoras()" id="impresora" name="impresora">Listar Impresoras</button>
+  <button onclick="">Listar Comentarios de las Impresoras</button>
+  <ul id="lista-impresoras"></ul>
+
+  <script>
+    
+    fetch('./lista-impresoras.json')
+        .then(function(response) {
+            if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo JSON.');
+            }
+            return response.json(); // Convertimos la respuesta a JSON
+        })
+        .then(function(data) {
+            let selectMarca=document.getElementById("marca")
+           for(let marca of data.marca){
+            let opcion=document.createElement("option");
+            opcion.innerHTML=impresora.marca;
+            opcion.value=impresora.id+ ".json";
+            selectMarca.appendChild(opcion);
+           }
+            
+
+            // Aqu铆 puedes realizar cualquier operaci贸n que necesites con los datos del archivo JSON
+        })
+        .catch(function(error) {
+            console.error('Se produjo un error al cargar el archivo JSON:', error);
+        });
+    
+</script>
+
+<script>
+    function dataImpresoras(){
+        let selectImpresora=document.getElementById("impresora");
+        let archivo=selectImpresora.value;
+    fetch(archivo)
+        .then(function(response) {
+            if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo JSON.');
+            }
+            return response.json(); // Convertimos la respuesta a JSON
+        })
+        .then(function(data) {
+            let lista_impresoras=document.getElementById("lista_impresoras")
+            for(let impresora of data.impresora){
+                let fila=document.createElement("ol");
+                let filaMarca=document.createElement("ol");
+                filaMarca.innerHTML=impresora.marca;
+                let filaMaterial=document.createElement("ol");
+                filaMaterial.innerHTML=impresora.material;
+                let filaColor=document.createElement("ol");
+                filaColor.innerHTML=impresora.color;
+                let filaDimensiones=document.createElement("ol");
+                filaDimensiones.innerHTML=impresora.dimensiones;
+                let filaPrecio=document.createElement("ol");
+                filaPrecio.innerHTML=impresora.precio;
+
+                fila.appendChild(filaMarca);
+                fila.appendChild(filaPrecio);
+                fila.appendChild(filaMaterial);
+                fila.appendChild(filaColor);
+                fila.appendChild(filaDimensiones);
+                document.getElementById(lista_impresoras).appendChild(fila);
+                
+            }
+            
+        })
+        .catch(function(error) {
+            console.error('Se produjo un error al cargar el archivo JSON:', error);
+        });
+    }
+</script>
+</body>
+</html>
